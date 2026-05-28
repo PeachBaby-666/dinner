@@ -173,31 +173,6 @@
 
     .divider { width: 40px; height: 1px; background: #3d2a5e; margin: 2rem auto; }
 
-    .setup-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: #5c4878;
-      margin-bottom: 14px;
-      letter-spacing: 0.04em;
-    }
-
-    .email-input {
-      width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid #3d2a5e;
-      border-radius: 10px;
-      color: #ddd0f5;
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      padding: 16px;
-      outline: none;
-      transition: border-color 0.2s;
-      text-align: center;
-      margin-bottom: 14px;
-    }
-    .email-input:focus { border-color: #7c5bbf; }
-    .email-input::placeholder { color: #4a3a66; }
-
     .final-note {
       font-family: 'Inter', sans-serif;
       font-size: 14px;
@@ -210,25 +185,27 @@
 <body>
   <div id="app">
     <div class="screen">
-      <div class="eyebrow">one-time setup</div>
-      <div class="question" style="font-size: clamp(22px, 6vw, 28px); margin-bottom:1.8rem;">What's your email?</div>
-      <div class="setup-label">so his answers land in your inbox</div>
-      <input class="email-input" type="email" id="email-input" placeholder="your@email.com" />
-      <button class="btn submit-btn" onclick="saveEmail()">let's go</button>
+      <div class="eyebrow">the eternal question</div>
+      <div class="question">What do you want<br>for dinner?</div>
+      <div class="btn-row">
+        <button class="btn btn-food" onclick="showRage()">Food</button>
+        <button class="btn btn-other" onclick="showOther()">I have actual thoughts</button>
+      </div>
     </div>
   </div>
 
   <script>
-    let recipientEmail = '';
+    const recipientEmail = 'mikayla.emery@hotmail.com';
 
-    function saveEmail() {
-      const val = document.getElementById('email-input').value.trim();
-      if (!val || !val.includes('@')) {
-        document.getElementById('email-input').style.borderColor = '#9b3080';
-        return;
-      }
-      recipientEmail = val;
-      showMain();
+    function showRage() {
+      document.getElementById('app').innerHTML = `
+        <div class="screen rage-screen">
+          <div class="rage-text">FUCK YOU —<br>I KNEW YOU'D<br>SELECT THAT ONE.</div>
+          <div class="divider"></div>
+          <div class="rage-sub">predictable as ever</div>
+          <button class="btn btn-other" style="margin-top:2.5rem; font-size:14px; padding:14px 28px;" onclick="showMain()">go back and redeem yourself</button>
+        </div>
+      `;
     }
 
     function showMain() {
@@ -238,19 +215,8 @@
           <div class="question">What do you want<br>for dinner?</div>
           <div class="btn-row">
             <button class="btn btn-food" onclick="showRage()">Food</button>
-            <button class="btn btn-other" onclick="showOther()">Other</button>
+            <button class="btn btn-other" onclick="showOther()">I have actual thoughts</button>
           </div>
-        </div>
-      `;
-    }
-
-    function showRage() {
-      document.getElementById('app').innerHTML = `
-        <div class="screen rage-screen">
-          <div class="rage-text">FUCK YOU —<br>I KNEW YOU'D<br>SELECT THAT ONE.</div>
-          <div class="divider"></div>
-          <div class="rage-sub">predictable as ever</div>
-          <button class="btn btn-other" style="margin-top:2.5rem; font-size:14px; padding:14px 28px;" onclick="showMain()">go back and redeem yourself</button>
         </div>
       `;
     }
