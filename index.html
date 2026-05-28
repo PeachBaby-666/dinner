@@ -71,33 +71,16 @@
     cursor: pointer;
     transition: all 0.18s ease;
     letter-spacing: 0.03em;
-  }
-
-  .btn-food {
     background: transparent;
-    border-color: #6d3ebf;
-    color: #c4a8f0;
-  }
-  .btn-food:hover {
-    background: rgba(109,62,191,0.2);
-    border-color: #9b68e8;
-    color: #e0ccff;
   }
 
-  .btn-other {
-    background: rgba(255,255,255,0.04);
-    border-color: #3d2a5e;
-    color: #8a7aa8;
-  }
-  .btn-other:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: #6d5090;
-    color: #c4b8dc;
-  }
+  .btn-food { border-color: #6d3ebf; color: #c4a8f0; }
+  .btn-food:hover { background: rgba(109,62,191,0.2); border-color: #9b68e8; color: #e0ccff; }
 
-  .rage-screen {
-    animation: rageIn 0.3s cubic-bezier(0.36,0.07,0.19,0.97);
-  }
+  .btn-other { border-color: #3d2a5e; color: #8a7aa8; background: rgba(255,255,255,0.04); }
+  .btn-other:hover { background: rgba(255,255,255,0.08); border-color: #6d5090; color: #c4b8dc; }
+
+  .rage-screen { animation: rageIn 0.3s cubic-bezier(0.36,0.07,0.19,0.97); }
   @keyframes rageIn {
     0% { transform: scale(0.85) rotate(-1deg); opacity: 0; }
     60% { transform: scale(1.04) rotate(0.5deg); }
@@ -110,18 +93,11 @@
     font-weight: 600;
     color: #f0c0ff;
     line-height: 1.25;
-    text-shadow: 0 0 40px rgba(180,80,220,0.4);
   }
 
-  .rage-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    color: #5c4878;
-    margin-top: 1.5rem;
-    letter-spacing: 0.05em;
-  }
+  .rage-sub { font-family: 'Inter', sans-serif; font-size: 13px; color: #5c4878; margin-top: 1.5rem; letter-spacing: 0.05em; }
 
-  .other-screen .prompt-label {
+  .prompt-label {
     font-family: 'Cinzel', serif;
     font-size: 16px;
     color: #c4a8f0;
@@ -129,7 +105,7 @@
     line-height: 1.5;
   }
 
-  .other-screen textarea {
+  textarea {
     width: 100%;
     background: rgba(255,255,255,0.04);
     border: 1px solid #3d2a5e;
@@ -142,103 +118,75 @@
     outline: none;
     transition: border-color 0.2s;
   }
-  .other-screen textarea:focus {
-    border-color: #7c5bbf;
-  }
-  .other-screen textarea::placeholder {
-    color: #4a3a66;
-  }
+  textarea:focus { border-color: #7c5bbf; }
+  textarea::placeholder { color: #4a3a66; }
 
   .submit-btn {
     margin-top: 14px;
-    background: rgba(109,62,191,0.15);
     border-color: #6d3ebf;
     color: #c4a8f0;
     width: 100%;
     padding: 13px;
+    background: rgba(109,62,191,0.15);
   }
-  .submit-btn:hover {
-    background: rgba(109,62,191,0.28);
-    border-color: #9b68e8;
-    color: #e0ccff;
-  }
+  .submit-btn:hover { background: rgba(109,62,191,0.28); border-color: #9b68e8; color: #e0ccff; }
 
-  .final-screen .final-text {
-    font-family: 'Cinzel', serif;
-    font-size: 18px;
-    color: #c4a8f0;
-    margin-bottom: 0.6rem;
-  }
-  .final-screen .final-answer {
-    font-family: 'Inter', sans-serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: #e8e0f5;
-    margin-top: 0.8rem;
-    padding: 14px 20px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 8px;
+  .divider { width: 40px; height: 1px; background: #3d2a5e; margin: 1.8rem auto; }
+
+  .setup-screen input {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
     border: 1px solid #3d2a5e;
+    border-radius: 8px;
+    color: #ddd0f5;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    padding: 13px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    text-align: center;
+    margin-bottom: 12px;
   }
+  .setup-screen input:focus { border-color: #7c5bbf; }
+  .setup-screen input::placeholder { color: #4a3a66; }
 
-  .divider {
-    width: 40px;
-    height: 1px;
-    background: #3d2a5e;
-    margin: 1.8rem auto;
+  .setup-label { font-family: 'Inter', sans-serif; font-size: 13px; color: #5c4878; margin-bottom: 10px; letter-spacing: 0.04em; }
+
+  .final-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #5c4878;
+    margin-top: 1rem;
+    line-height: 1.6;
   }
 </style>
 
 <div id="app">
-  <div id="main" class="screen">
-    <div class="eyebrow">the eternal question</div>
-    <div class="question">What do you want<br>for dinner?</div>
-    <div class="btn-row">
-      <button class="btn btn-food" onclick="showRage()">Food</button>
-      <button class="btn btn-other" onclick="showOther()">Other</button>
-    </div>
+  <div class="screen setup-screen">
+    <div class="eyebrow">one-time setup</div>
+    <div class="question" style="font-size:20px; margin-bottom:1.6rem;">What's your email?</div>
+    <div class="setup-label">so his answers land in your inbox</div>
+    <input type="email" id="email-input" placeholder="your@email.com" />
+    <button class="btn submit-btn" onclick="saveEmail()">let's go</button>
   </div>
 </div>
 
 <script>
-  function showRage() {
-    document.getElementById('app').innerHTML = `
-      <div class="screen rage-screen" style="text-align:center; max-width:500px;">
-        <div class="rage-text">FUCK YOU —<br>I KNEW YOU'D<br>SELECT THAT ONE.</div>
-        <div class="divider"></div>
-        <div class="rage-sub">predictable as ever</div>
-        <button class="btn btn-other" style="margin-top:2rem; font-size:13px; padding:10px 24px;" onclick="reset()">go back and redeem yourself</button>
-      </div>
-    `;
+  let recipientEmail = '';
+
+  function saveEmail() {
+    const val = document.getElementById('email-input').value.trim();
+    if (!val || !val.includes('@')) {
+      document.getElementById('email-input').style.borderColor = '#9b3080';
+      return;
+    }
+    recipientEmail = val;
+    showMain();
   }
 
-  function showOther() {
+  function showMain() {
     document.getElementById('app').innerHTML = `
-      <div class="screen other-screen" style="max-width:480px;">
-        <div class="prompt-label">Wow, look at you being<br>a responsible adult.<br><br>What do you actually feel like?</div>
-        <textarea id="answer" rows="4" placeholder="type it out, champ..."></textarea>
-        <button class="btn submit-btn" onclick="showFinal()">submit my grown-up answer</button>
-      </div>
-    `;
-  }
-
-  function showFinal() {
-    const val = document.getElementById('answer').value.trim();
-    if (!val) { document.getElementById('answer').style.borderColor = '#9b3080'; return; }
-    document.getElementById('app').innerHTML = `
-      <div class="screen final-screen" style="max-width:480px; text-align:center;">
-        <div class="eyebrow">answer received</div>
-        <div class="final-text">Noted. We're having:</div>
-        <div class="final-answer">${val}</div>
-        <div class="divider"></div>
-        <div class="rage-sub">proud of you</div>
-      </div>
-    `;
-  }
-
-  function reset() {
-    document.getElementById('app').innerHTML = `
-      <div id="main" class="screen">
+      <div class="screen">
         <div class="eyebrow">the eternal question</div>
         <div class="question">What do you want<br>for dinner?</div>
         <div class="btn-row">
@@ -247,13 +195,44 @@
         </div>
       </div>
     `;
-    attachEvents();
   }
 
-  function attachEvents() {
-    const f = document.querySelector('.btn-food');
-    const o = document.querySelector('.btn-other');
-    if(f) f.onclick = showRage;
-    if(o) o.onclick = showOther;
+  function showRage() {
+    document.getElementById('app').innerHTML = `
+      <div class="screen rage-screen" style="max-width:500px;">
+        <div class="rage-text">FUCK YOU —<br>I KNEW YOU'D<br>SELECT THAT ONE.</div>
+        <div class="divider"></div>
+        <div class="rage-sub">predictable as ever</div>
+        <button class="btn btn-other" style="margin-top:2rem; font-size:13px; padding:10px 24px;" onclick="showMain()">go back and redeem yourself</button>
+      </div>
+    `;
+  }
+
+  function showOther() {
+    document.getElementById('app').innerHTML = `
+      <div class="screen" style="max-width:480px;">
+        <div class="prompt-label">Wow, look at you being<br>a responsible adult.<br><br>What do you actually feel like?</div>
+        <textarea id="answer" rows="4" placeholder="type it out, champ..."></textarea>
+        <button class="btn submit-btn" onclick="sendAnswer()">send it</button>
+      </div>
+    `;
+  }
+
+  function sendAnswer() {
+    const val = document.getElementById('answer').value.trim();
+    if (!val) { document.getElementById('answer').style.borderColor = '#9b3080'; return; }
+
+    const subject = encodeURIComponent('Dinner answer 🍽️');
+    const body = encodeURIComponent('He has spoken.\n\n"' + val + '"\n\n— delivered via the dinner question');
+    window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+
+    document.getElementById('app').innerHTML = `
+      <div class="screen" style="max-width:480px; text-align:center;">
+        <div class="eyebrow">answer sent</div>
+        <div class="rage-text" style="font-size:22px; color:#c4a8f0;">His answer is on its way.</div>
+        <div class="divider"></div>
+        <div class="final-note">his email app should have opened.<br>tell him to hit send.</div>
+      </div>
+    `;
   }
 </script>
